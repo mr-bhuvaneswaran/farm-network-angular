@@ -1,0 +1,12 @@
+<div class="user-details" fxLayout="column" fxLayoutAlign="center center">
+    <img src="/assets/user.png" alt="user" height="60" width="60">
+    <span style="padding:10px; color: white">{{user.firstName}}</span>    
+</div>
+
+<mat-list role="list">
+  <mat-list-item style="cursor: pointer;" role="listitem" (click)="this[menu.call]()" *ngFor="let menu of menus; let lastItem = last;">
+      <h4 mat-line>{{menu.name}}</h4>
+    <mat-divider *ngIf="!lastItem"></mat-divider> 
+  </mat-list-item>
+</mat-list>
+  

@@ -1,0 +1,34 @@
+mat-card{
+    margin: 10px;
+    background: rgba(128, 128, 128, 0.15);
+}
+
+img{
+    height: 50vh;
+    width: 50vw;
+}
+
+.crop-div{
+    height: 90vh;
+    overflow: auto;
+}
+
+.stock-div{
+    margin-top: 10px;
+    background: white;
+    border-radius: 10px;
+}
+
+.mat-list-base{
+    padding:0px; 
+}
+
+.stock-div .border{
+    padding:10px;
+    margin: 0px;
+    border-bottom: solid rgba(0, 0, 0, 0.24) 1px;
+}
+
+.spacer{
+    flex: 1 1 auto;
+}

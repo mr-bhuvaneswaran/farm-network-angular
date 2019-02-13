@@ -1,0 +1,42 @@
+<div style="height: 80vh;" fxLayout="row" fxLayoutAlign="center center">
+    <mat-card class="log-card" >
+      <mat-card-header>
+        <mat-card-title>LOGIN</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <form class="log-container" [formGroup]="logGroup" (ngSubmit)="logGroup.valid && loginUser()" novalidate>
+          <mat-form-field 
+            [floatLabel]="auto">
+            <input 
+             id="id"
+             matInput
+             formControlName="id"
+             [(ngModel)]="user.id"
+             placeholder="Aadhar Number">
+          </mat-form-field>
+          <mat-form-field 
+            [floatLabel]="auto">
+            <input 
+            id="password" 
+            matInput 
+            placeholder="Enter your password" 
+            formControlName="password"
+            [(ngModel)]="user.password" 
+            [type]="hide ? 'password' : 'text'">
+            <mat-icon style="cursor: pointer" matSuffix (click)="hide = !hide">
+              {{hide ? 'visibility_off' : 'visibility'}}
+            </mat-icon>
+          </mat-form-field>
+          <div style="text-align: center;">
+            <button mat-raised-button type="submit" [disabled]="!logGroup.valid" color="primary">Login</button>
+          </div>
+        </form>  
+      <div style="text-align: center;padding: 10px;">
+        <a style="text-decoration: none;" routerLink="/register"> Not a User? Become one..</a>
+      </div>  
+    <div id="warn-div" style="color:red; text-align: center;padding: 15px;">
+      <span>Invalid Credentials!</span>
+    </div>
+      </mat-card-content>
+    </mat-card>
+    </div>

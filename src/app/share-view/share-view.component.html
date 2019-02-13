@@ -1,0 +1,32 @@
+<div class="share-div">
+  <div class="header" fxLayout="row">
+      <p><b>shares</b></p>
+      <span class="spacer"></span>
+      <button mat-stroked-button color="primary" (click)="updateShare()">Refresh</button>
+      <button (click)="goBack()" mat-stroked-button color="primary">Back</button>
+  </div>
+  <div fxLayoutAlign="center center" style="color: red" *ngIf="shares?.length == 0">
+      <h4 mat-line>No shares!!</h4>
+  </div> 
+  <mat-accordion>
+    <mat-expansion-panel *ngFor="let share of shares">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          {{share.title}}
+        </mat-panel-title>   
+        <mat-panel-description>
+          <span style="color: blue"  *ngIf="!share.status">under Cultivation</span>
+          <span style="color:green" *ngIf="share.status">Crop Ready</span>
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <div>
+          <p>{{share.description}}</p>
+          <mat-form-field>
+            <input matInput type="number" placeholder="User ID" [(ngModel)]="newOwner">
+          </mat-form-field>          
+          <button style="margin-left: 50px;" mat-raised-button (click)="transferShare(share.shareId)" color="primary">Transfer</button>
+          <span style="margin:0px 10px" id="warn"></span>
+      </div>
+    </mat-expansion-panel>
+  </mat-accordion>
+</div>

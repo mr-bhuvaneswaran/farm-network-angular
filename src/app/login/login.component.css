@@ -1,0 +1,45 @@
+.log-card {
+    width: 400px;
+}
+
+.mat-card-header .mat-card-title{
+  margin-bottom: 0px;
+}
+
+.mat-card{
+  padding: 0px;
+}
+.log-card .mat-card-header {
+  background-color: rgba(97, 105, 210, 0.86);
+  justify-content: center;
+  color: white;
+  padding: 10px;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.mat-card-content{
+  padding: 15px 15px 15px 15px;
+  margin-bottom: 0px;
+}
+
+.mat-card-content button{
+  width: 50%;
+}
+
+.log-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.log-container > * {
+  width: 100%;
+}
+
+.log-container form {
+  margin-bottom: 20px;
+}
+
+.log-container form > * {
+  margin: 5px 0;
+}

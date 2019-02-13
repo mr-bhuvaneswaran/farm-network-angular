@@ -1,0 +1,54 @@
+<div class="crop-div">
+  <mat-card>
+    <mat-card-header fxLayout="row" fxLayoutAlign="space-between start">
+      <mat-card-title>
+        Crop Name : {{commodity.name}}
+      </mat-card-title>
+      <button (click)="goBack()" mat-stroked-button color="primary">Back</button>
+    </mat-card-header>
+    <mat-card-content fxLayout="column" fxLayoutGap="15px">
+      <div fxLayout="row" fxLayoutGap="15px grid">
+        <img [src] = "commodity.images">
+        <p>{{commodity.description}}</p>
+      </div> 
+      <div fxLayout="row" fxLayoutAlign="space-between start" fxLayoutGap="15px grid">
+        <span >Type : {{commodity.type}}</span>
+      </div>
+      <div>
+        <h3>Market Value</h3>
+        <span>
+          Per Kg : {{commodity.fnc}} FNC
+        </span>
+      </div>  
+      <div class="stock-div">
+        <div class="border" fxLayout="row" fxLayoutAlign="space-between start">
+          <h3> Stocks List</h3>
+          <span *ngIf="status" style="padding : 10px; color: green"><b>Request Successful</b></span>
+        </div>
+        <div fxLayoutAlign="center center" style="color: red" *ngIf="stockList?.length == 0">
+          <h4 mat-line>No Stocks To Buy</h4>
+        </div>
+        <mat-accordion>
+          <mat-expansion-panel *ngFor="let stock of stockList;">
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                  {{stock.place}} - {{stock.type}}
+              </mat-panel-title>
+              <mat-panel-description>
+
+                Harvest On : {{stock.harvestDate}}
+              </mat-panel-description>
+            </mat-expansion-panel-header>
+
+            <p>Quantity : {{stock.quantity}}</p>
+            <mat-form-field>
+              <input matInput type="number" min="1" [max]="stock.quantity" placeholder="Quantity" [(ngModel)]="quantity">
+            </mat-form-field>
+            
+            <button style="margin-left: 50px;" mat-raised-button [disabled]="quantity <= 0 || quantity > stock.quantity" (click)="buyRequestStock(stock)" color="primary">Request</button>
+          </mat-expansion-panel>
+        </mat-accordion>  
+      </div>  
+    </mat-card-content>
+  </mat-card>
+</div>

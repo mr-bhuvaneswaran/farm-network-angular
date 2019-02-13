@@ -1,0 +1,51 @@
+<div class="new-div">
+  <mat-card>
+    <mat-card-header fxLayout="row" fxLayoutAlign="space-between start">
+      <mat-card-title>
+        Create new stock
+      </mat-card-title>
+      <button (click)="goBack()" mat-stroked-button color="primary">Back</button>
+    </mat-card-header>
+    <mat-card-content >
+      <form fxLayout="column" fxLayoutGap="10px" [formGroup]="stockGroup" (ngSubmit)="stockGroup.valid && createStock()" novalidate>
+        <mat-form-field 
+        [floatLabel]="auto">
+        <input 
+          id="id"
+          matInput
+          [(ngModel)]="stock.insuranceId"
+          formControlName="id"
+          placeholder="Insurance Number">
+        </mat-form-field>
+        <mat-form-field>
+          <mat-select placeholder="Commodity" formControlName="commodity" [(ngModel)]="stock.commodity">
+            <mat-option *ngFor="let commodity of commodities" [value]="commodity">
+              {{commodity.name + " - " +commodity.type}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>  
+        <mat-form-field [floatLabel]="auto">
+          <input type="number" min="1" step="any" id="quantity" matInput [(ngModel)]="stock.quantity" formControlName="quantity" placeholder="Quantity">
+        </mat-form-field>
+        <mat-form-field [floatLabel]="auto">
+          <input type="text" [(ngModel)]="stock.place" formControlName="place" matInput placeholder="Place of cultivation">
+        </mat-form-field>
+        <mat-form-field [floatLabel]="auto">
+          <input type="text" [(ngModel)]="stock.type" formControlName="type" matInput placeholder="Type/Area of cultivation">
+        </mat-form-field>
+        <mat-form-field>
+          <input type="text" [(ngModel)]="stock.harvestDate" formControlName="harvestDate" matInput placeholder="Dateof Harvest (DD/MM/YYYY)">
+        </mat-form-field>      
+          <mat-checkbox formControlName="open" matInput [(ngModel)]="stock.open" labelPosition="before">
+          Allow Request 
+          </mat-checkbox>
+      <div style="margin:20px">
+        <button [disabled]="!stockGroup.valid" mat-raised-button color="primary" type="submit">Create</button>
+      </div>  
+      </form>
+    <div *ngIf="hide" style="color:red; text-align: center;padding: 15px;">
+      <span>Retry</span>
+    </div> 
+    </mat-card-content>
+  </mat-card>
+</div>

@@ -1,0 +1,31 @@
+<div class="stock-view-div">
+  <div class="header" fxLayout="row">
+      <p><b>Stocks</b></p>
+      <span class="spacer"></span>
+      <button mat-stroked-button color="primary" (click)="updateStock()">Refresh</button>
+      <button (click)="goBack()" mat-stroked-button color="primary">Back</button>
+  </div>
+  <div fxLayoutAlign="center center" style="color: red" *ngIf="stockList?.length == 0">
+      <h4 mat-line>No shares!!</h4>
+  </div>
+  <mat-accordion>
+    <mat-expansion-panel *ngFor="let stock of stockList;">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+            {{stock.place}} - {{stock.type}}
+        </mat-panel-title>
+        <mat-panel-description>
+          Harvest On : {{stock.harvestDate}}
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <div fxLayout="row">
+          <span>Quantity : {{stock.quantity}} Kgs</span>
+          <span class="spacer"></span>
+          
+          <button style="margin:0px 10px;" mat-raised-button *ngIf="!stock.open" (click)="open(stock)" color="primary">Open</button> 
+          <button style="margin:0px 10px;" mat-raised-button *ngIf="stock.open" (click)="close(stock)" color="primary">Close</button>      
+          <button style="margin: 0px 10px;" mat-raised-button (click)="notify(stock)" color="primary">Stock Ready</button>
+      </div>
+    </mat-expansion-panel>
+  </mat-accordion>
+</div>

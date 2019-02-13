@@ -1,0 +1,21 @@
+.notification-div{
+    padding: 10px;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.12);
+}
+
+.spacer{
+    flex: 1 1 auto;
+}
+
+.header{
+    padding: 10px;
+    background: white;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.header p{
+    margin-bottom: 0px;
+    margin-top: 2px;
+}

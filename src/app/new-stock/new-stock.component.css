@@ -1,0 +1,17 @@
+mat-card{
+    margin: 10px;
+    background: rgba(128, 128, 128, 0.15);
+}
+
+.new-div{
+    height: 90vh;
+    overflow: auto;
+}
+
+.mat-form-field{
+    width: 25vw;
+}
+
+button{
+    width: 100px;
+}
