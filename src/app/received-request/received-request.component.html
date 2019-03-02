@@ -1,0 +1,27 @@
+<div class="request-div">
+  <div class="header" fxLayout="row">
+      <p><b>Requests</b></p>
+      <span class="spacer"></span>
+      <button (click)="updateRequest()" mat-stroked-button color="primary">Refresh</button>
+
+      <button (click)="goBack()" mat-stroked-button color="primary">Back</button>
+  </div>
+  <div fxLayoutAlign="center center" style="color: red" *ngIf="requests?.length == 0">
+      <h4 mat-line>All caught UP!!</h4>
+  </div> 
+  <mat-accordion>
+    <mat-expansion-panel *ngFor="let request of requests">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          {{request.title}}
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+        <div fxLayout="row">
+          <p>{{request.description}}</p>
+          <span class="spacer"></span>
+          <button mat-stroked-button color="primary" (click)="checkUserStatus(request)">Check Status</button>
+          <button mat-raised-button color="primary" (click)="deleteRequest(request)">Deny</button>
+        </div>
+    </mat-expansion-panel>
+  </mat-accordion>
+</div>

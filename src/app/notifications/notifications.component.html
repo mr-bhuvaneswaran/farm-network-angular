@@ -1,0 +1,24 @@
+<div class="notification-div">
+  <div class="header" fxLayout="row">
+      <p><b>Notifications</b></p>
+      <span class="spacer"></span>
+      <button (click)="goBack()" mat-stroked-button color="primary">Back</button>
+  </div>
+  <div fxLayoutAlign="center center" style="color: red" *ngIf="messages?.length == 0">
+      <h4 mat-line>All caught UP!!</h4>
+  </div> 
+  <mat-accordion>
+    <mat-expansion-panel *ngFor="let message of messages">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          {{message.title}}
+        </mat-panel-title>   
+      </mat-expansion-panel-header>
+      <div fxLayout="row">
+        <p>{{message.description}}</p>
+        <span class="spacer"></span>
+        <button mat-raised-button color="primary" (click)="clearMessage(message.messageId)">Clear</button>
+      </div>
+    </mat-expansion-panel>
+  </mat-accordion>
+</div>

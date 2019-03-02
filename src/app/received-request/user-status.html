@@ -1,0 +1,12 @@
+<h1 mat-dialog-title>{{data.commodity.name}} - {{data.commodity.type}}</h1>
+<div mat-dialog-content>
+  <p>{{data.requestor.firstName}} {{data.requestor.lastName}}</p>
+  <p>Balance : {{data.requestor.balance}} FNC</p>
+  <p>
+      Status : <span style="color:green" *ngIf="suffice"> Sufficient Balance</span> <span style="color:red" *ngIf="!suffice"> Insufficient Balance</span> 
+  </p>
+</div>
+<div mat-dialog-actions>
+  <button style="margin: 0px 10px" mat-stroked-button class="mat-accent" (click)="onClose()">Close</button>
+  <button mat-raised-button class="mat-primary" (click)="acceptRequest()" cdkFocusInitial>Accept</button>
+</div>

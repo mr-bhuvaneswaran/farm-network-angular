@@ -1,0 +1,19 @@
+<mat-sidenav-container class="home-container">
+    <mat-sidenav #sidenav [mode]="over">
+        <app-navigate></app-navigate>
+    </mat-sidenav>
+    <mat-sidenav-content style="overflow: hidden;">
+        <mat-toolbar color="primary">
+            <mat-toolbar-row>
+                <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="sidenav.toggle()" color="white">
+                <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+                </button>
+                <span class="home-spacer"></span>
+                <button (click)="createNew()" mat-button><b>Create</b></button>
+                <mat-icon style="cursor:pointer"   (click)="showNotifications()" [matBadge]="warn" [matBadgeHidden]="warn == 0" matBadgeColor="warn">notifications</mat-icon>
+                <span style="padding: 0 16px;"><b>Balance : {{user.balance}}</b></span>
+            </mat-toolbar-row>
+        </mat-toolbar>
+        <router-outlet></router-outlet>
+    </mat-sidenav-content>
+</mat-sidenav-container>

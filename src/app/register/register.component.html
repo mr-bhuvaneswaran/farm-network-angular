@@ -1,0 +1,60 @@
+<div style="height: 80vh;" fxLayout="row" fxLayoutAlign="center center">
+<mat-card class="reg-card" >
+  <mat-card-header>
+    <mat-card-title>REGISTER</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <form class="reg-container" [formGroup]="registerGroup" (ngSubmit)="registerGroup.valid && createUser()" novalidate>
+      <mat-form-field 
+        [floatLabel]="auto">
+        <input 
+         id="id"
+         matInput
+         formControlName="id"
+         [(ngModel)]="user.id"
+         placeholder="Aadhar Number">
+      </mat-form-field>
+      <mat-form-field 
+        [floatLabel]="auto">
+        <input 
+         id="fname"
+         matInput
+         formControlName="fname"
+         [(ngModel)]="user.fname"
+         placeholder="First Name">
+      </mat-form-field>
+      <mat-form-field 
+        [floatLabel]="auto">
+        <input 
+         id="lname"
+         matInput
+         formControlName="lname"
+         [(ngModel)]="user.lname"
+         placeholder="Last Name">
+      </mat-form-field>
+      <mat-form-field 
+        [floatLabel]="auto">
+        <input 
+        id="password" 
+        matInput 
+        placeholder="Enter your password" 
+        formControlName="password"
+        [(ngModel)]="user.password" 
+        [type]="hide ? 'password' : 'text'">
+        <mat-icon style="cursor: pointer;" matSuffix (click)="hide = !hide">
+          {{hide ? 'visibility_off' : 'visibility'}}
+        </mat-icon>
+      </mat-form-field>
+      <div style="text-align: center;">
+        <button mat-raised-button type="submit" [disabled]="!registerGroup.valid" color="primary">Create Account</button>
+      </div>
+    </form>
+    <div style="text-align: center;padding: 10px;">
+      <a style="text-decoration: none;" routerLink="/login"> Already a User...Login</a>
+    </div> 
+    <div id="warn-div" style="color:red; text-align: center;padding: 15px;">
+      <span id="warn-text"></span>
+    </div>   
+  </mat-card-content>
+</mat-card>
+</div>

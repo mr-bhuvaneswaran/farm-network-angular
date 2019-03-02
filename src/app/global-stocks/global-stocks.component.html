@@ -1,0 +1,12 @@
+<div class="stocks-div" fxLayout="row wrap" fxLayoutAlign="center start">
+  <mat-card (click)="showCommodity(commodity)" *ngFor="let commodity of commodities" class="stocks-card">
+    <mat-card-header>
+      <mat-card-title>{{commodity.name}}</mat-card-title>
+      <mat-card-subtitle>{{commodity.type}}</mat-card-subtitle>
+    </mat-card-header>
+    <img mat-card-image style="width: 250px;height: 200px;" [src]="commodity.images" alt="Photo of a commodity">
+    <mat-card-content>
+      <p>Market price : {{commodity.fnc}} FNC/Kg</p>
+    </mat-card-content>
+  </mat-card>
+</div>

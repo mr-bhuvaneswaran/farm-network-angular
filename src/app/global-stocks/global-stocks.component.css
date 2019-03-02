@@ -1,0 +1,11 @@
+.stocks-card {
+    margin: 10px;
+    max-width: 250px;
+    background: rgba(158, 158, 158, 0.09);
+    cursor: pointer;
+}
+
+.stocks-div{
+    height: 90vh;
+    overflow: auto;
+}
