@@ -3,7 +3,11 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
+<<<<<<< HEAD
     "start": "ng serve --proxy-config proxyconfig.json --host 192.168.43.160",
+=======
+    "start": "ng serve --proxy-config proxyconfig.json",
+>>>>>>> 0750bbbcf804a292bac46e2864a625863e32e1cf
     "postinstall": "node patch-webpack.js",
     "build": "ng build",
     "test": "ng test",

@@ -23,7 +23,11 @@ export class GlobalStocksComponent implements OnInit {
   }
 
   showCommodity(commodity: any) {
+<<<<<<< HEAD
     this.router.navigate(['./crop',{commodityId:commodity.commodityId}],{relativeTo:this.route}).then((res)=>{
+=======
+    this.router.navigate(['./crop'],{relativeTo:this.route}).then((res)=>{
+>>>>>>> 0750bbbcf804a292bac46e2864a625863e32e1cf
       if(res == true){
         this.session.setCommodity(commodity);
       }else{

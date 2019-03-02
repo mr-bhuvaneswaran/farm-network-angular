@@ -6,7 +6,11 @@
       <button (click)="goBack()" mat-stroked-button color="primary">Back</button>
   </div>
   <div fxLayoutAlign="center center" style="color: red" *ngIf="stockList?.length == 0">
+<<<<<<< HEAD
       <h4 mat-line>No Stocks!!</h4>
+=======
+      <h4 mat-line>No shares!!</h4>
+>>>>>>> 0750bbbcf804a292bac46e2864a625863e32e1cf
   </div>
   <mat-accordion>
     <mat-expansion-panel *ngFor="let stock of stockList;">

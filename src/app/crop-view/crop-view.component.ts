@@ -17,6 +17,7 @@ export class CropViewComponent implements OnInit {
   constructor(private spinnerService: Ng4LoadingSpinnerService,  private stocks:StockService, private route: ActivatedRoute,private session: SessionService,private router:Router) { }
 
   ngOnInit() {
+<<<<<<< HEAD
     this.spinnerService.show();
     this.route.params.subscribe(data=>{
     const commodityId = data.commodityId
@@ -32,6 +33,13 @@ export class CropViewComponent implements OnInit {
     })
     
      
+=======
+    this.commodity = this.session.getCommodity();
+    this.stocks.getStocksOfCommodity(this.commodity.commodityId,this.session.getUser().userId)
+    .subscribe((data:Array<Object>)=>{
+      this.stockList = data.reverse();  
+    }) 
+>>>>>>> 0750bbbcf804a292bac46e2864a625863e32e1cf
   }
 
   goBack(){
@@ -75,8 +83,13 @@ export class CropViewComponent implements OnInit {
         }
         this.stocks.createMessage(message)
         .subscribe(data=>{
+<<<<<<< HEAD
           this.status = true;
           this.spinnerService.hide();
+=======
+          this.spinnerService.hide();
+          this.status = true;
+>>>>>>> 0750bbbcf804a292bac46e2864a625863e32e1cf
         })
       })  
 
